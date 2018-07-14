@@ -18,7 +18,7 @@ The default __alphabet__ reference is a modified version of the _Old Latin_ alph
 
 ### Menu
 ***
-#### 1) Convert a Word,Phrase,or String
+#### 1) Convert a Word, Phrase, or String
 Converts a word, phrase, or string into solfege or notes.  
 #### 2) Change Alphabet
 Change the alphabet index of the melodicon  
