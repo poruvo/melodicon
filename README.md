@@ -40,7 +40,7 @@ Exit the program
 ## Dependencies
 This program needs the following packages to run:  
 
-[MIDIUtil](https://pypi.org/project/MIDIUtil/) - A Python Library for writing MIDI Files.
+[MIDIUtil](https://pypi.org/project/MIDIUtil/) - A Python Library for writing MIDI files by [Mark Conway Wirt](https://pypi.org/project/MIDIUtil/#data)
 
 
 ## Contributing
