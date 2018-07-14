@@ -82,6 +82,8 @@ def createmidifile(scaledegrees):
         print(p)
     else:
         p = Path.cwd() / 'midis'
+        if not os.path.exists(p):
+            os.makedirs(p)
         os.chdir(p)
 
     savecheck = 0
