@@ -59,9 +59,9 @@ Version 0.0.1 - First Commit + README.md
 Program developed by Stephon X. Jones
 
 ## Sidenote
-I don't plan on this being a heavily-developed project.
-This is something I plan on keeping up with in my spare time.
-If you have any suggestions please feel free to make a pull req.
+I don't plan on this being a heavily-developed project.  
+This is something I plan on keeping up with in my spare time.  
+If you have any suggestions please feel free to make a pull req.  
 
 ## License
 MIT License
