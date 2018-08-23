@@ -1,7 +1,11 @@
 #Local Mock Data and Dicts
 
+#Alphabets
 oldLatin = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'K', 'L', 'M', 'N', 'O',
             'P', 'Q', 'R', 'S', 'T', 'V', 'X', 'Y', 'Z', '&']
+
+GREEK = ['\u0391','\u0392','\u0393', '\u0394', '\u0395', '\u0396', '\u0397', '\u0398', '\u0399', '\u039a', '\u039b', '\u039c', '\u039d', '\u039e', '\u039f', '\u03a0', '\u03a1', '\u03a3','\u03a4', '\u03a5', '\u03a6', '\u03a7', '\u03a8', '\u03a9']                        
+
 twelvetoneScale = list(range(1, 13))
 bTonicScale = ['B', 'C', 'C#/Db', 'D', 'D#/Eb', 'E', 'F', 'F#/Gb', 'G', 'G#/Ab', 'A', 'A#/Bb']
 solfegeNames = ['do', 'di', 're', 'me', 'mi', 'fa', 'fi', 'sol', 'le', 'la', 'te', 'ti']
@@ -9,6 +13,7 @@ solfegeDict = dict(zip(twelvetoneScale, solfegeNames))
 inputReturn = []
 
 #--------------Functions----------------------------
+
 def makemusicalphabetbyhalf(alphabet, twelvetone):
     # Create A-Z music scale from selected alphabet
     musicalphahalf = dict(zip(alphabet, twelvetone))
@@ -17,7 +22,6 @@ def makemusicalphabetbyhalf(alphabet, twelvetone):
 
 def makemusicscale(tonicscale, twelvetone):
     # Creates user's musical scale based on their tonic
-    # Add deques to allow user to change/iterate through tonics
     scaledict = dict(zip(twelvetone, tonicscale))
     return scaledict
 
@@ -75,7 +79,12 @@ def createmidifile(scaledegrees):
     import os  
     import os.path
     from pathlib import Path
-    p = Path.cwd() / 'midis'
+    filepath = Path.cwd() / 'midis'
+    p = str(filepath)
+    if not os.path.exists(p):
+            os.makedirs(p)
+            os.chdir(p) 
+
     if os.path.isdir(p) == True:
         os.chdir(p)
         print("Inside Directory")
@@ -122,14 +131,14 @@ def createmidifile(scaledegrees):
             MyMIDI.addTempo(track, time, tempo)
             for i, pitch in enumerate(degrees):
                 MyMIDI.addNote(track, channel, pitch, time + i, duration, volume)
-            print(f'saving {filename} to {p}')
+            print('Saving ' + filename + ' to ' + p + '...')    
             with open(filename, "wb") as output_file:
                 MyMIDI.writeFile(output_file)
-            p = Path.cwd() / ''
+            p = str(Path.cwd() / '')
             os.chdir(p)
             savecheck += 1
         elif usersave == 'N':
-            p = Path.cwd() / ''
+            p = str(Path.cwd() / '')
             os.chdir(p)
             savecheck += 1
         else:
@@ -140,6 +149,12 @@ def createmidifile(scaledegrees):
 ##  MENU
 def mainmenu():
     menucheck = 0
+    tonicScale = []
+    userchanged = []
+    if tonicScale == []:
+        tonicScale = bTonicScale
+    else:
+        tonicScale = userchanged
     while menucheck == 0:
         print('''Welcome to the Melodicon! Choose your menu option below:
             1) Convert Words/Phrases/Names
@@ -152,7 +167,7 @@ def mainmenu():
         if menuinput == '1':
             repeatcheck = 0
             while repeatcheck == 0:
-                themelodicon()
+                themelodicon(tonicScale)
                 reconvertcheck = 0
                 while reconvertcheck == 0:
                     convertagain = input("Convert more words? (Y/N): ")
@@ -164,24 +179,84 @@ def mainmenu():
                         reconvertcheck += 1
                         repeatcheck += 1
                     else:
-                        print("Invalid Input. Try Again1")
+                        print("Invalid Input. Try Again")
                         continue
         elif menuinput == '2':
-            print("Feature Not Added Yet!")
+         print(GREEK)
             #TODO - Change Alphabet
             ## Change the default alphabet from 'Old Latin' to a different lexical index.
+
+            # Take the user input and convert it into the unicode lexicog 24-letter dict index
+            # Compare the user input to the regular alphabet, then transfer indexes to new 24 char alphabet,
+            # Display the new alpha characters with solfege and convert into MIDI.
+            
+
         elif menuinput == '3':
-            print("Feature Not Added Yet!")
+            inputCheck = 0
+            changeCheck = 0
+            #Change the scale tonic of the Melodicon
+            #    changeScaleTonisc(tonicScale)
+            from collections import deque
+            #Show me whats in the thing
+            if tonicScale == []:
+                tonicScale = bTonicScale
+                s = deque(tonicScale)
+                print(s)
+            else:
+                s = deque(tonicScale)
+                print(s)
             #TODO - Change Scale Tonic
             ##Change the default tonic note from 'B' to another 12-tone pitch index.
+            
+            while changeCheck == 0:
+                changescale = input("Which note would you like to change your tonic to?: \n New Tonic (Move in semitones): ")
+                while inputCheck == 0:
+                    try:
+                        changescale = int(changescale)
+                        inputCheck += 1
+                    except ValueError:
+                        print("Invalid input, not an integer! Try again.")
+                        changescale = input("Which note would you like to change your tonic to?: \n New Tonic (Move in semitones): ")
+                        continue
+                    changescale = -int(changescale)
+                    if changescale < 12 and changescale > -12:
+                        s.rotate(changescale)
+                        userchanged = list(s)
+                        print (userchanged + "\n")
+                        baseTonic = userchanged
+                        tonicScale = userchanged
+                        changeCheck =+ 1
+                        break
+                    else:
+                        print("Invalid Input, please enter an integer")
+                        continue
+                
         elif menuinput == '4':
-            print("Feature Not Added Yet!")
             #TODO - Reverse Melodicon 
             ## Show the possible letter pairs of numeric scale degrees that are entered.
+            repeatcheck = 0
+            while repeatcheck == 0:
+                reversemelodicon(tonicScale)
+                reconvertcheck = 0
+                while reconvertcheck == 0:
+                    convertagain = input("Convert more words? (Y/N): ")
+                    convertagain = convertagain.upper()
+                    if convertagain == 'Y':
+                        reconvertcheck += 1
+                        continue
+                    elif convertagain == 'N':
+                        reconvertcheck += 1
+                        repeatcheck += 1
+                    else:
+                        print("Invalid Input. Try Again")
+                        continue
+
         elif menuinput == '5':
-            print("Feature Not Added Yet!")
             #TODO - Restore Defaults !! THIS IS IMPORTANT
             ## Restore the OldLatin and B-Scale defaults.
+            tonicScale = bTonicScale
+            print("Default settings restored.\n")
+
         elif menuinput == '6':
             #Exit the Program
             menucheck += 1
@@ -191,7 +266,7 @@ def mainmenu():
             continue
 
 #---------THE MELODICON-----------------
-def themelodicon():
+def themelodicon(tonicScale):
     print('''
     Welcome to the Melodicon!
     OldLatin is the default alphabet!
@@ -200,18 +275,46 @@ def themelodicon():
     W = UU
     J = G
     ''')
+    if tonicScale == bTonicScale:
+        print("(Your Scale Tonic is " + tonicScale[0] +  ")")
+    else:
+        print("(Your Scale Tonic is " + tonicScale[0])
     print(oldLatin)
     userMusicDictAM = makemusicalphabetbyhalf(oldLatin[0:12], twelvetoneScale)
     userMusicDictNZ = makemusicalphabetbyhalf(oldLatin[12:24], twelvetoneScale)
-    userScale = makemusicscale(bTonicScale, twelvetoneScale)
+    userScale = makemusicscale(tonicScale, twelvetoneScale)
     wordInput = input("Please enter a word, name, or phrase to convert: ")
     userReturn = compareuserinput(userMusicDictAM, userMusicDictNZ, wordInput)
     populatescaledegrees(userScale, userReturn)
     populatesolfege(solfegeDict, userReturn)
     createmidifile(userReturn)
     return
+
+#---------RESERVE MELODICON--------------
+def reversemelodicon(tonicScale):
+    print('''
+    The Reverse Melodicon!
+    Turn your scale degrees into letters for possible word combinations!
+    OldLatin is the default alphabet!
+    (Invalid characters will be met with '%')
+    U = V
+    W = UU
+    J = G
+
+    ''')
+    if tonicScale == bTonicScale:
+        print("(Your Scale Tonic is " + tonicScale[0] +  ")")
+    else:
+        print("(Your Scale Tonic is " + tonicScale[0])
+    print(oldLatin)
+    #For Each character in the string, check to see if its in a dict
+    #for Each character that IS in a dict, add it to a temp value
+    # Display each scale degree and the two possible letters
+    # Leave instructions for converting into MIDI
+    return
 #------------MAIN----------------------
 def __init__():
+    tonicScale = []
     mainmenu()
 
 #--------BOILERPLATE------------#
