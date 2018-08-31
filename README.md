@@ -22,18 +22,14 @@ The default __alphabet__ reference is a modified version of the _Old Latin_ alph
 Converts a word, phrase, or string into solfege or notes.  
 #### 2) Change Alphabet
 Change the alphabet index of the melodicon  
-TODO: IMPLEMENT THIS FEATURE
+
 #### 3) Change Scale Tonic
 Change the scale tonic of the melodicon  
-TODO: IMPLEMENT THIS FEATURE
-#### 4) Convert Scale Degrees to Possible Letters
-Convert numerical values to possible letter pairs
-(This is intended to show the user the _possible_ letter combinations to form words with.  
-TODO: IMPLEMENT THIS FEATURE
-#### 5) Restore Defaults
+
+#### 4) Restore Defaults
 Return alphabet index and music scale to _'Old Latin'_ and _'B4'_ respectively.  
 (This feature will be implemented after the scale/alphabet change features are both added)
-#### 6) Exit
+#### 5) Exit
 Exit the program  
 ***
 
