@@ -14,18 +14,20 @@ Here is an example of the index.
 \N O P Q R S T V X  Y  Z  &\
 ***
 ### GREEK
-\Α Β Γ Δ Ε Ζ Η Θ Ι  Κ  Λ  Μ\
+Α Β Γ Δ Ε Ζ Η Θ Ι  Κ  Λ  Μ
 
-\1 2 3 4 5 6 7 8 9 10 11 12\
+1 2 3 4 5 6 7 8 9 10 11 12
 
-\Ν Ξ Ο Π Ρ Σ Τ Υ Φ  Χ  Ψ  Ω\
+Ν Ξ Ο Π Ρ Σ Τ Υ Φ  Χ  Ψ  Ω
 ***
 ### ELDER FUTHARK
-\ᚠ ᚢ ᚦ ᚨ ᚱ ᚲ ᚷ ᚹ ᚺ  ᚾ   ᛁ  ᛃ\
+ᚠ ᚢ ᚦ ᚨ ᚱ ᚲ ᚷ ᚹ ᚺ  ᚾ   ᛁ  ᛃ
 
-\1 2 3 4 5 6 7 8 9 10 11 12\
+1 2 3 4 5 6 7 8 9 10 11 12
 
-\ᛇ ᛈ ᛉ ᛋ ᛏ ᛒ ᛖ ᛗ ᛚ  ᛜ  ᛞ  ᛟ\
+ᛇ ᛈ ᛉ ᛋ ᛏ ᛒ ᛖ ᛗ ᛚ  ᛜ  ᛞ  ᛟ
+
+(Sorry, I cannot format this correctly to match here.)
 
 
 Use this program as a tool to create interesting musical phrases or motifs to use in your own personal projects!
