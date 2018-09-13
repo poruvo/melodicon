@@ -511,7 +511,7 @@ def mainmenu():
             # Change the default tonic note from 'B' to another 12-tone pitch index.
             while changeCheck == 0:
                 changescale = input(
-                    "Which note would you like to change your tonic to?: \n New Tonic (Move in semitones): " + "\n")
+                    "Which note would you like to change your tonic to?: \n New Tonic (Move in semitones, use integers ranging from -12 to 12): " + "\n")
                 while inputCheck == 0:
                     if changescale == str(''):
                         changeCheck += 1
@@ -523,7 +523,7 @@ def mainmenu():
                         except ValueError:
                             print("Invalid input, not an integer! Try again.")
                             changescale = input(
-                                "Which note would you like to change your tonic to?: \n New Tonic (Move in semitones): " + "\n")
+                                "Which note would you like to change your tonic to?: \n New Tonic (Move in semitones, use integers ranging from -12 to 12): " + "\n")
                             inputCheck = 0
                             continue
                         changescale = -int(changescale)
@@ -539,7 +539,7 @@ def mainmenu():
                                 "Invalid Input, please enter an integer within -12 to 12" + "\n")
                             inputCheck = 0
                             changescale = input(
-                                "Which note would you like to change your tonic to?: \n New Tonic (Move in semitones): "  + "\n")
+                                "Which note would you like to change your tonic to?: \n New Tonic (Move in semitones, use integers ranging from -12 to 12): "  + "\n")
                             continue
                 
         elif menuinput == '4':
