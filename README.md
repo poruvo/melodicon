@@ -106,6 +106,7 @@ If you have any issues trying to EDIT the index for YOUR melodicon, please let m
 Version 0.7.5 - Open Source Code - Needs Refactoring, Fully Functional
 
 ### Changelog
+0.7.5 - Removed Reverse Melodicon from Code, Edited Docs, Planned to fix bug with '&' Character in OldLatin dictionary.
 
 ## Credits
 Program developed by Stephon X. Jones
