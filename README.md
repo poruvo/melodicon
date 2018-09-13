@@ -5,30 +5,22 @@ An program that converts letters, words, and phrases to musical pitches using an
 This program was written to attempt to bridge the gap between 'music' and 'words'. The Melodicon uses a twelve-tone musical scale to convert characters from a phrase, name, or string into note pitches or solfege.
 
 Here is an example of the index.
-
-### OLD LATIN
-\A B C D E F G H I  K  L  M\
-
-\1 2 3 4 5 6 7 8 9 10 11 12\
-
-\N O P Q R S T V X  Y  Z  &\
-***
-### GREEK
+<pre>
+OLD LATIN
+A B C D E F G H I  K  L  M
+1 2 3 4 5 6 7 8 9 10 11 12
+N O P Q R S T V X  Y  Z  &
+---
+GREEK
 Α Β Γ Δ Ε Ζ Η Θ Ι  Κ  Λ  Μ
-
 1 2 3 4 5 6 7 8 9 10 11 12
-
 Ν Ξ Ο Π Ρ Σ Τ Υ Φ  Χ  Ψ  Ω
-***
-### ELDER FUTHARK
+---
+ELDER FUTHARK
 ᚠ ᚢ ᚦ ᚨ ᚱ ᚲ ᚷ ᚹ ᚺ  ᚾ   ᛁ  ᛃ
-
 1 2 3 4 5 6 7 8 9 10 11 12
-
 ᛇ ᛈ ᛉ ᛋ ᛏ ᛒ ᛖ ᛗ ᛚ  ᛜ  ᛞ  ᛟ
-
-(Sorry, I cannot format this correctly to match here.)
-
+</pre>
 
 Use this program as a tool to create interesting musical phrases or motifs to use in your own personal projects!
 
@@ -45,11 +37,11 @@ Traditionally, you may be inclined to try out words that you know or words that 
 
 For example: 
 
-KING in English, B[10,9,1,7] (( G#/Ab - G - B ))
+**KING** in English, B[10,9,1,7] (( G#/Ab - G - B ))
 
-    (is) 
+   translates to:
     
-REGIS in Old Latin. B[5,5,7,9,6] ((D#/Eb - D#/Eb - F - G - E ))
+**REGIS** in Old Latin. B[5,5,7,9,6] ((D#/Eb - D#/Eb - F - G - E ))
 
 
 As you can see, these provide very different musical phrases.
