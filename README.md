@@ -31,7 +31,6 @@ Change the scale tonic of the melodicon
 
 #### 4) Restore Defaults
 Return alphabet index and music scale to _'Old Latin'_ and _'B4'_ respectively.  
-(This feature will be implemented after the scale/alphabet change features are both added)
 
 #### 5) Exit
 Exit the program  
