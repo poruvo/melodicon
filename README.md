@@ -103,10 +103,11 @@ If you have any issues trying to EDIT the index for YOUR melodicon, please let m
 (If you mess it up, just redownload the melodicon.py :D )
 
 ## History
-Version 0.7.5 - Open Source Code - Needs Refactoring, Fully Functional
+Version 0.7.6 - Open Source Code - Needs Refactoring, Fully Functional
 
 ### Changelog
-0.7.5 - Removed Reverse Melodicon from Code, Edited Docs, Planned to fix bug with '&' Character in OldLatin dictionary.
+0.7.6 - Fixed '&' Old Latin bug.
+0.7.5 - Removed Reverse Melodicon from code, edited docs, planned to fix bug with '&' character in OldLatin dictionary.
 
 ## Credits
 Program developed by Stephon X. Jones
