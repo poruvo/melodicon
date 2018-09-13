@@ -19,16 +19,20 @@ The default __alphabet__ reference is a modified version of the _Old Latin_ alph
 ### Menu
 ***
 #### 1) Convert a Word, Phrase, or String
-Converts a word, phrase, or string into solfege or notes.  
+Converts a word, phrase, or string into solfege or notes.
+
 #### 2) Change Alphabet
-Change the alphabet index of the melodicon  
+Change the alphabet index of the melodicon.
+(The default alphabet is Old Latin.)
 
 #### 3) Change Scale Tonic
-Change the scale tonic of the melodicon  
+Change the scale tonic of the melodicon
+(The default scale tonic is B.)
 
 #### 4) Restore Defaults
 Return alphabet index and music scale to _'Old Latin'_ and _'B4'_ respectively.  
 (This feature will be implemented after the scale/alphabet change features are both added)
+
 #### 5) Exit
 Exit the program  
 ***
@@ -45,6 +49,9 @@ This program needs the following packages to run:
 3) Commit changes: `git commit -am 'Add This Feature'`
 4) Push to branch: git push origin my-addition
 5) Submit a Pull Request
+6) Code It
+7) Push It Back Up
+8) Celebrate!
 
 ## History
 Version 0.7.5 - Open Source Code - Needs Refactoring, Fully Functional
