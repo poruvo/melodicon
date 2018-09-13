@@ -14,6 +14,7 @@ solfegeNames = ['do', 'di', 're', 'me', 'mi', 'fa', 'fi', 'sol', 'le', 'la', 'te
 solfegeDict = dict(zip(twelvetoneScale, solfegeNames))
 filepath = Path.cwd() / 'midis'
 inputReturn = []
+
 #--------------Functions----------------------------
 
 def makemusicalphabetbyhalf(alphabet, twelvetone):
@@ -423,9 +424,7 @@ def mainmenu():
             if globalTranspose == 0 and tonicScale[0] != 'B':
                 print('''
                 Be careful, you must have really messed around with your settings. 
-                This is not a bug, but user-abuse. Use Option 4 if things get too wild. Good try, though.
-                What you did, is change scales and turned off the transposition feature.
-                Thus, the program will output tonicized scale degrees from their index number rather than transpositional relation (B) ''')
+                ''')
             # OPTION 1 - THE MELODICON
             repeatcheck = 0
             while repeatcheck == 0:
@@ -550,7 +549,8 @@ def mainmenu():
                                 userchangedScale = list(s)
                                 print("\nYour New Scale: " + str(list(userchangedScale)))
                                 tonicScale = userchangedScale
-                                globalTranspose = changescale
+                                if globalTranspose == 0:
+                                    globalTranspose = changescale
                                 changeCheck =+ 1
                                 break
                         else:
