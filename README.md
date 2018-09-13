@@ -44,7 +44,7 @@ Traditionally, you may be inclined to try out words that you know or words that 
 
 For example: 
 
-**KING** in English, B[10,9,1,7] (( G#/Ab - G - B ))
+**KING** in English, B[10,9,1,7] (( B - A#/Bb - D - G#/Ab ))
 
    translates to:
     
