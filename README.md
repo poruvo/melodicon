@@ -31,6 +31,8 @@ Use this program as a tool to create interesting musical phrases or motifs to us
 
 Additionally, the user can export their converted word/phrase to a MIDI File.
 
+This program requires Python 3.6.
+
 ## Usage
 The program has a numeric menu with 5 options.
 
@@ -81,7 +83,7 @@ Exit the program
 ***
 
 ## Dependencies
-This program needs the following packages to run:  
+This program needs the following packages to run word to MIDI conversion:  
 
 [MIDIUtil](https://pypi.org/project/MIDIUtil/) - A Python Library for writing MIDI files by [Mark Conway Wirt](https://pypi.org/project/MIDIUtil/#data)
 
