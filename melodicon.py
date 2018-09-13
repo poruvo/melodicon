@@ -14,6 +14,7 @@ solfegeDict = dict(zip(twelvetoneScale, solfegeNames))
 
 inputReturn = []
 #--------------Functions----------------------------
+
 def makemusicalphabetbyhalf(alphabet, twelvetone):
     # Create A-Z music scale from selected alphabet
     musicalphahalf = dict(zip(alphabet, twelvetone))
@@ -94,7 +95,7 @@ def compareuserinput(musicdictam, musicdictnz, userinput, alphabetList):
                 tIndex = tempreturnedinput.find('5')
                 hIndex = tIndex + 1
                 if '57' in tempreturnedinput:
-                    # Find occurence of [5, %]
+                    # Find occurence of [57]
                     del translationinput[tIndex:hIndex+1]
                     translationinput.insert(tIndex, 'Ρ')
                     del returnedinput[tIndex:hIndex+1]
@@ -114,7 +115,7 @@ def compareuserinput(musicdictam, musicdictnz, userinput, alphabetList):
             while iterator < userinputed.count('th'):
                 tIndex = tempreturnedinput.find('77')
                 hIndex = tIndex + 1
-                # Find occurence of [7%]
+                # Find occurence of [77]
                 if '77' in tempreturnedinput:
                     del translationinput[tIndex:hIndex+1]
                     translationinput.insert(tIndex, 'Θ')
@@ -144,7 +145,7 @@ def compareuserinput(musicdictam, musicdictnz, userinput, alphabetList):
             while iterator < userinputed.count('ks'):
                 tIndex = tempreturnedinput.find('106')
                 hIndex = tIndex + 1
-                # Find occurence of [10, 6]
+                # Find occurence of [106]
                 if '106' in tempreturnedinput:
                     del translationinput[tIndex:hIndex+1]
                     translationinput.insert(tIndex, 'Ξ')
@@ -228,7 +229,7 @@ def compareuserinput(musicdictam, musicdictnz, userinput, alphabetList):
                     tIndex = tempreturnedinput.find('59')    
                 hIndex = tempreturnedinput.find('9')
                 if tIndex == (hIndex - 1):
-                    # Find occurence of [5, 9] and replace with [3]
+                    # Find occurence of [59] and replace with [3]
                     if '59' in tempreturnedinput:
                         tempreturnedinput = tempreturnedinput.replace('59','', 1)
                         temptranslationinput = temptranslationinput.replace('ᛏᚺ', '', 1)
@@ -247,7 +248,7 @@ def compareuserinput(musicdictam, musicdictnz, userinput, alphabetList):
             while iterator < userinputed.count('ae'):
                 tIndex = tempreturnedinput.find('4')
                 hIndex = tIndex + 1
-                        # Find occurence of [4, 7] and replace with [1]
+                        # Find occurence of [47] and replace with [1]
                 if '47' in tempreturnedinput:
                     # tempreturnedinput = tempreturnedinput.replace('47', '', 1)
                     # temptranslationinput = temptranslationinput.replace('ᚨᛖ', '', 1)
@@ -264,7 +265,7 @@ def compareuserinput(musicdictam, musicdictnz, userinput, alphabetList):
             while iterator < userinputed.count('ng'):
                 tIndex = tempreturnedinput.find('10')
                 hIndex = tIndex + 1
-            # Find occurence of [10, 7] and replace with [10]
+            # Find occurence of [107] and replace with [10]
                 if '107' in tempreturnedinput:
                     del translationinput[tIndex:hIndex+1]
                     translationinput.insert(tIndex, 'ᛜ')
@@ -336,8 +337,8 @@ def createmidifile(scaledegrees):
             filepath = Path.cwd() / 'midis'
             p = str(filepath)
             if not os.path.exists(p):
-                    os.makedirs(p)
-                    os.chdir(p)
+                os.makedirs(p)
+                os.chdir(p)
 
             if os.path.isdir(p) == True:
                 os.chdir(p)
@@ -354,7 +355,6 @@ def createmidifile(scaledegrees):
             filename = ""
             while filename == "":
                 filename = input("Enter your filename:  ")
-                
                 if(os.path.isfile(filename+".mid")):
                     print("Error: File already exists!!")
                     filename = ""
@@ -364,8 +364,6 @@ def createmidifile(scaledegrees):
                 else:
                     filename = filename + ".mid"
                     continue
-    
-                       
             degrees = scaledegrees  # MIDI note number
             track = 0
             channel = 0
@@ -506,10 +504,10 @@ def mainmenu():
             if tonicScale == []:
                 tonicScale = bTonicScale
                 s = deque(tonicScale)
-                print(s)
+                print("Your Current Scale: " + str(list(s)))
             else:
                 s = deque(tonicScale)
-                print(s)
+                print("Your Current Scale: " + str(list(s)))
             # Change the default tonic note from 'B' to another 12-tone pitch index.
             while changeCheck == 0:
                 changescale = input(
@@ -532,7 +530,7 @@ def mainmenu():
                         if changescale <= 12 and changescale >= -12:
                             s.rotate(changescale)
                             userchangedScale = list(s)
-                            print(userchangedScale)
+                            print("Your New Scale: " + str(list(userchangedScale)))
                             tonicScale = userchangedScale
                             changeCheck =+ 1
                             break
@@ -570,8 +568,13 @@ def themelodicon(tonicScale, alphabetList):
         print("Your alphabet is Old Latin!: " + str(OLDLATIN))
     else: 
         if alphabetList == GREEK:
+            print('''Invalid characters will be met with '%')
+            H = EE
+            C = K
+            ''')
             print(("Your alphabet is Greek: ") + str(alphabetList))
         elif alphabetList == FUTHARK:
+            print('Invalid characters will be met with "%"')
             print(("Your alphabet is Futhark:") + str(alphabetList))
     userMusicDictAM = makemusicalphabetbyhalf(alphabetList[0:12], twelvetoneScale)
     userMusicDictNZ = makemusicalphabetbyhalf(alphabetList[12:24], twelvetoneScale)
