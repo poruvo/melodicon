@@ -5,6 +5,11 @@ An program that converts letters, words, and phrases to musical pitches using an
 This program was written to attempt to bridge the gap between 'music' and 'words'. The Melodicon uses a twelve-tone musical scale to convert characters from a phrase, name, or string into note pitches or solfege.
 
 Here is an example of the index.
+
+Your scale degrees are 1-12, the corresponding characters are located at the top and the bottom of each number.
+
+This system is what makes the melodicon a twelve-tone alphanumeric composing index.
+
 <pre>
 OLD LATIN
 A B C D E F G H I  K  L  M
