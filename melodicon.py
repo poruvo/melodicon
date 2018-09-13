@@ -224,7 +224,8 @@ def compareuserinput(musicdictam, musicdictnz, userinput, alphabetList):
             tempreturnedinput = ''.join(map(str, returnedinput))
             temptranslationinput = ''.join(map(str, translationinput))
             while iterator < userinputed.count('th'):
-                tIndex = tempreturnedinput.find('5')
+                tIndex = tempreturnedinput.find('59')
+            #I'm rather upset about this implementation. However, it was the safest validation I could muster at the time. Suggestions welcomed.
                 hIndex = tempreturnedinput.find('59') + 1
                 if '559' in tempreturnedinput:
                     tIndex = tempreturnedinput.find('59')
