@@ -54,7 +54,7 @@ def compareuserinput(musicdictam, musicdictnz, userinput, alphabetList):
                 returnedinput.append(musicdictam.get('G'))
             else:
                 if letter not in musicdictam.keys() or musicdictnz.keys():
-                    returnedinput.append('%')
+                    pass
     elif alphabetList == GREEK:
         # Convert user input into alphabet like-sectors and then convert to unicode, then use the index to match the notes
         arrayConvDictAM = (makeunicodedict(GREEKCONV[0:12], GREEK[0:12]))
@@ -84,7 +84,7 @@ def compareuserinput(musicdictam, musicdictnz, userinput, alphabetList):
                         translationinput.append(arrayConvDictAM.get('k'))
                 else:
                     if letter not in arrayConvDictAM.keys() or arrayConvDictNO.keys():
-                        returnedinput.append('%')
+                        pass
                         translationinput.append('%')
         if 'rh' or 'rho' in userinputed:
           #Find Occurence of [value, value], then convert to [single value]
@@ -217,7 +217,7 @@ def compareuserinput(musicdictam, musicdictnz, userinput, alphabetList):
                         translationinput.append(arrayConvDictAEO.get(letter))
             else:
                 if letter not in arrayConvDictFJ.keys() or arrayConvDictAEO.keys():
-                    returnedinput.append('%')
+                    pass
                     translationinput.append('%')
         if 'th' in userinputed:
             iterator = 0
@@ -225,10 +225,9 @@ def compareuserinput(musicdictam, musicdictnz, userinput, alphabetList):
             temptranslationinput = ''.join(map(str, translationinput))
             while iterator < userinputed.count('th'):
                 tIndex = tempreturnedinput.find('59')
-            #I'm rather upset about this implementation. However, it was the safest validation I could muster at the time. Suggestions welcomed.
                 hIndex = tempreturnedinput.find('59') + 1
                 if '559' in tempreturnedinput:
-                    tIndex = tempreturnedinput.find('59')
+                    tIndex = tempreturnedinput.find('59')    
                 if tIndex == (hIndex - 1):
                     # Find occurence of [59] and replace with [3]
                     if '59' in tempreturnedinput:
@@ -241,7 +240,6 @@ def compareuserinput(musicdictam, musicdictnz, userinput, alphabetList):
                         returnedinput.remove(9)
                         returnedinput.insert(tIndex, 3)
                         iterator += 1
-            
         if 'ae' in userinputed:
             iterator = 0
             tempreturnedinput = ''.join(map(str, returnedinput))
@@ -251,8 +249,6 @@ def compareuserinput(musicdictam, musicdictnz, userinput, alphabetList):
                 hIndex = tIndex + 1
                         # Find occurence of [47] and replace with [1]
                 if '47' in tempreturnedinput:
-                    # tempreturnedinput = tempreturnedinput.replace('47', '', 1)
-                    # temptranslationinput = temptranslationinput.replace('ᚨᛖ', '', 1)
                     del translationinput[tIndex:hIndex+1]
                     translationinput.insert(tIndex, 'ᛇ')
                     del returnedinput[tIndex:hIndex+1]
@@ -273,7 +269,6 @@ def compareuserinput(musicdictam, musicdictnz, userinput, alphabetList):
                     del returnedinput[tIndex:hIndex+1]
                     returnedinput.insert(tIndex, 1)
                     iterator += 1
-            
     else:
         print('Error, defaulting to Old Latin!')
         for letter in userinputed:
@@ -290,7 +285,8 @@ def compareuserinput(musicdictam, musicdictnz, userinput, alphabetList):
                 returnedinput.append(musicdictam.get('G'))
             else:
                 if letter not in musicdictam.keys() or musicdictnz.keys():
-                    returnedinput.append('%')
+                    pass
+    print('Your scale degrees:')
     print(returnedinput)
     if alphabetList == GREEK:
         print(translationinput)
@@ -305,6 +301,7 @@ def compareuserinput(musicdictam, musicdictnz, userinput, alphabetList):
         print(' - '.join(userinputed) + '\n')
     else:
         pass
+
     return returnedinput
 
 def populatescaledegrees(musicscale, returnedinput):
@@ -415,6 +412,7 @@ def mainmenu():
             5) Exit''')
         menuinput = input("Enter a number to select an option: ")
         if menuinput == '1':
+            # OPTION 1 - THE MELODICON
             repeatcheck = 0
             while repeatcheck == 0:
                 themelodicon(tonicScale,userAlphabet)
@@ -431,8 +429,9 @@ def mainmenu():
                     else:
                         print("Invalid Input. Try Again")
                         continue
+                        
         elif menuinput == '2':
-         # Change the default alphabet from 'Old Latin' to a different lexical index.
+         # OPTION 2 -Change the default alphabet from 'Old Latin' to a different lexical index.
          inputCheck = 0
          alphaSelectCheck = 0
          while alphaSelectCheck == 0:
@@ -496,9 +495,8 @@ def mainmenu():
             if userAlphabet == 0:
                 userAlphabet = OLDLATIN
             
-
         elif menuinput == '3':
-            # Change the scale tonic of the Melodicon
+            # OPTION 3 Change the scale tonic of the Melodicon
             inputCheck = 0
             changeCheck = 0
             from collections import deque
@@ -512,7 +510,7 @@ def mainmenu():
             # Change the default tonic note from 'B' to another 12-tone pitch index.
             while changeCheck == 0:
                 changescale = input(
-                    "Which note would you like to change your tonic to?: \n New Tonic (Move in semitones, use integers ranging from -12 to 12): " + "\n")
+                    "Which note would you like to change your tonic to?: \n New Tonic (Move in semitones): " + "\n")
                 while inputCheck == 0:
                     if changescale == str(''):
                         changeCheck += 1
@@ -524,7 +522,7 @@ def mainmenu():
                         except ValueError:
                             print("Invalid input, not an integer! Try again.")
                             changescale = input(
-                                "Which note would you like to change your tonic to?: \n New Tonic (Move in semitones, use integers ranging from -12 to 12): " + "\n")
+                                "Which note would you like to change your tonic to?: \n New Tonic (Move in semitones): " + "\n")
                             inputCheck = 0
                             continue
                         changescale = -int(changescale)
@@ -540,17 +538,17 @@ def mainmenu():
                                 "Invalid Input, please enter an integer within -12 to 12" + "\n")
                             inputCheck = 0
                             changescale = input(
-                                "Which note would you like to change your tonic to?: \n New Tonic (Move in semitones, use integers ranging from -12 to 12): "  + "\n")
-                            continue
-                
+                                "Which note would you like to change your tonic to?: \n New Tonic (Move in semitones): "  + "\n")
+                            continue 
+                                    
         elif menuinput == '4':
-            # Restore the OldLatin and B-Scale defaults.
+            # OPTION  4 Restore the OldLatin and B-Scale defaults.
             tonicScale = bTonicScale
             userAlphabet = OLDLATIN
             print("Default settings restored.\n")
 
         elif menuinput == '5':
-            # Exit the Program
+            # OPTION 5 Exit the Program
             menucheck += 1
             return
         else:
@@ -561,7 +559,7 @@ def themelodicon(tonicScale, alphabetList):
     print("Welcome to the Melodicon!")
     print("(Your Scale Tonic is " + tonicScale[0])
     if alphabetList == OLDLATIN:
-        print('''Invalid characters will be met with '%')
+        print('''Invalid characters will removed.)
                 U = V
                 W = UU
                 J = G
@@ -569,13 +567,13 @@ def themelodicon(tonicScale, alphabetList):
         print("Your alphabet is Old Latin!: " + str(OLDLATIN))
     else: 
         if alphabetList == GREEK:
-            print('''Invalid characters will be met with '%')
+            print('''Invalid characters will removed.)
             H = EE
             C = K
             ''')
             print(("Your alphabet is Greek: ") + str(alphabetList))
         elif alphabetList == FUTHARK:
-            print('Invalid characters will be met with "%"')
+            print('Invalid characters will be removed')
             print(("Your alphabet is Futhark:") + str(alphabetList))
     userMusicDictAM = makemusicalphabetbyhalf(alphabetList[0:12], twelvetoneScale)
     userMusicDictNZ = makemusicalphabetbyhalf(alphabetList[12:24], twelvetoneScale)
@@ -589,7 +587,5 @@ def themelodicon(tonicScale, alphabetList):
 #------------MAIN----------------------
 def __init__():
     mainmenu()
-    
-
 #--------BOILERPLATE------------#
 __init__()
