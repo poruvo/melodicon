@@ -46,10 +46,15 @@ For example:
 
    translates to:
     
-**REGIS** in Old Latin. B[5,5,7,9,6] ((D#/Eb - D#/Eb - F - G - E ))
+**REGIS** in Latin. B[5,5,7,9,6] ((D#/Eb - D#/Eb - F - G - E ))
+
+   translates to:
+
+**ROI** in French. B[5,2,9] ((D#/Eb - C - G ))
 
 
 As you can see, these provide very different musical phrases.
+Furthermore, these three words share the same meaning.
 Feel free to be as creative as you like! 
 There are no wrong words! (notes)
 
