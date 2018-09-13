@@ -1,3 +1,7 @@
+#Imports
+import os.path
+from pathlib import Path
+
 #Local Mock Data and Dicts
 OLDLATIN = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'K', 'L', 'M', 'N', 'O',
             'P', 'Q', 'R', 'S', 'T', 'V', 'X', 'Y', 'Z', '&']
@@ -11,7 +15,7 @@ twelvetoneScale = list(range(1, 13))
 bTonicScale = ['B', 'C', 'C#/Db', 'D', 'D#/Eb', 'E', 'F', 'F#/Gb', 'G', 'G#/Ab', 'A', 'A#/Bb']
 solfegeNames = ['do', 'di', 're', 'me', 'mi', 'fa', 'fi', 'sol', 'le', 'la', 'te', 'ti']
 solfegeDict = dict(zip(twelvetoneScale, solfegeNames))
-
+filepath = Path.cwd() / 'midis'
 inputReturn = []
 #--------------Functions----------------------------
 
@@ -301,7 +305,6 @@ def compareuserinput(musicdictam, musicdictnz, userinput, alphabetList):
         print(' - '.join(userinputed) + '\n')
     else:
         pass
-
     return returnedinput
 
 def populatescaledegrees(musicscale, returnedinput):
@@ -322,30 +325,26 @@ def populatesolfege(solfdict, returnedinput):
     print(('='*12) + 'SOLFEGE' + ('='*12))
     print(' - '.join(solfnames) + '\n')
 
-def createmidifile(scaledegrees):
+def createmidifile(scaledegrees, filepath):
     # Convert user input to midi file.
     savecheck = 0
     import os
     import os.path
     from pathlib import Path
+    p = str(filepath)
     while savecheck == 0:
+        defaultpath = os.getcwd()
+        print('Current directory')
+        print(defaultpath)
         usersave = input("Create MIDI File? (Y/N): ")
         usersave = usersave.upper()
         if usersave == "Y":
-            filepath = Path.cwd() / 'midis'
-            p = str(filepath)
-            if not os.path.exists(p):
-                os.makedirs(p)
-                os.chdir(p)
-
-            if os.path.isdir(p) == True:
+            if os.path.exists(filepath) == True:
                 os.chdir(p)
                 print("Inside Directory")
-                print(p)
-            else:
-                p = Path.cwd() / 'midis'
-                if not os.path.exists(p):
-                    os.makedirs(p)
+            if os.path.exists(filepath) == False:
+                print('Creating Directory')
+                os.makedirs(p)
                 os.chdir(p)
             from midiutil.MidiFile import MIDIFile
             for i in range(len(scaledegrees)):
@@ -582,7 +581,7 @@ def themelodicon(tonicScale, alphabetList):
     userReturn = compareuserinput(userMusicDictAM, userMusicDictNZ, wordInput, alphabetList)
     populatescaledegrees(userScale, userReturn)
     populatesolfege(solfegeDict, userReturn)
-    createmidifile(userReturn)
+    createmidifile(userReturn, filepath)
     return
 #------------MAIN----------------------
 def __init__():
