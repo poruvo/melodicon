@@ -75,6 +75,10 @@ Change the scale tonic of the melodicon
 
 The scale tonic will be changed in semitones, **use integers ranging from -12 to 12**
 
+Without intervention, the Melodicon will output it's raw values according to B (the default scale tonic).
+When a user changes the scale tonic on their own, the user will be shown the alphanumeric index scale degrees/notes as well as the transposed scale degrees/notes.
+Also, the MIDI file will export in the user's selected scale with the transposed notes.
+
 #### 4) Restore Defaults
 Return alphabet index and music scale to _'Old Latin'_ and _'B4'_ respectively.  
 
@@ -107,9 +111,12 @@ If you have any issues trying to EDIT the index for YOUR melodicon, please let m
 (If you mess it up, just redownload the melodicon.py :D )
 
 ## History
-Version 0.7.7 - Open Source Code - Needs Refactoring, Fully Functional
+Version 0.8.0 - Open Source Code - Needs Refactoring, Functional Implementaion
 
 ### Changelog
+
+0.8.0 - Fixed MIDI Directory bug. Added a 'transposition feature' for changed scales.
+
 0.7.7 - Fixed 'L' + 'TH' Futhark bug.
 
 0.7.6 - Fixed '&' Old Latin bug.
