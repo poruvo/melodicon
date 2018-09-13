@@ -108,6 +108,7 @@ Version 0.7.6 - Open Source Code - Needs Refactoring, Fully Functional
 ### Changelog
 0.7.6 - Fixed '&' Old Latin bug.
 0.7.5 - Removed Reverse Melodicon from code, edited docs, planned to fix bug with '&' character in OldLatin dictionary.
+0.1.0 - Initial Commit
 
 ## Credits
 Program developed by Stephon X. Jones
