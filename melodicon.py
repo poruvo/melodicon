@@ -225,9 +225,9 @@ def compareuserinput(musicdictam, musicdictnz, userinput, alphabetList):
             temptranslationinput = ''.join(map(str, translationinput))
             while iterator < userinputed.count('th'):
                 tIndex = tempreturnedinput.find('5')
+                hIndex = tempreturnedinput.find('59') + 1
                 if '559' in tempreturnedinput:
-                    tIndex = tempreturnedinput.find('59')    
-                hIndex = tempreturnedinput.find('9')
+                    tIndex = tempreturnedinput.find('59')
                 if tIndex == (hIndex - 1):
                     # Find occurence of [59] and replace with [3]
                     if '59' in tempreturnedinput:
