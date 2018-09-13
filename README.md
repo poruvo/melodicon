@@ -47,7 +47,7 @@ This program needs the following packages to run:
 5) Submit a Pull Request
 
 ## History
-Version 0.0.1 - First Commit + README.md
+Version 0.7.5 - Open Source Code - Needs Refactoring, Fully Functional
 
 ### Changelog
 
@@ -57,7 +57,7 @@ Program developed by Stephon X. Jones
 ## Sidenote
 I don't plan on this being a heavily-developed project.  
 This is something I plan on keeping up with in my spare time.  
-If you have any suggestions please feel free to make a pull req.  
+If you have any suggestions please feel free to make a pull req or let me know what ideas you have!
 
 ## License
 MIT License
