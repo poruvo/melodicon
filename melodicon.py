@@ -1,7 +1,5 @@
-#Imports
 import os.path
 from pathlib import Path
-
 #Local Mock Data and Dicts
 OLDLATIN = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'K', 'L', 'M', 'N', 'O',
             'P', 'Q', 'R', 'S', 'T', 'V', 'X', 'Y', 'Z', '&']
@@ -10,7 +8,6 @@ GREEKCONV = ['a', 'b', 'g', 'd', 'e', 'z', 'ee', 'th', 'i', 'k', 'l', 'm', 'n', 
 FUTHARK = ['\u16A0', '\u16A2', '\u16A6', '\u16A8', '\u16B1', '\u16B2', '\u16B7',
            '\u16B9', '\u16BA', '\u16BE', '\u16C1', '\u16C3', '\u16C7', '\u16C8', '\u16C9', '\u16CB', '\u16CF', '\u16D2', '\u16D6', '\u16D7', '\u16DA', '\u16DC', '\u16DE', '\u16DF']
 FUTHARKCONV = ['f', 'u', 'th', 'a', 'r', 'k', 'g', 'w', 'h', 'n', 'i', 'j', 'ae', 'p', 'z', 's', 't', 'b', 'e', 'm', 'l', 'ng', 'd', 'o']
-
 twelvetoneScale = list(range(1, 13))
 bTonicScale = ['B', 'C', 'C#/Db', 'D', 'D#/Eb', 'E', 'F', 'F#/Gb', 'G', 'G#/Ab', 'A', 'A#/Bb']
 solfegeNames = ['do', 'di', 're', 'me', 'mi', 'fa', 'fi', 'sol', 'le', 'la', 'te', 'ti']
@@ -34,7 +31,7 @@ def makeunicodedict(alphabetListUnicodeConv, alphabetList):
     unicodedict = dict(zip(alphabetListUnicodeConv, alphabetList))
     return unicodedict
 
-def compareuserinput(musicdictam, musicdictnz, userinput, alphabetList):
+def compareuserinput(musicdictam, musicdictnz, userinput, alphabetList, globalTranspose):
     # Compare user input to selected music scale/alphabet and returns scale degrees
     import re
     returnedinput = []
@@ -290,18 +287,29 @@ def compareuserinput(musicdictam, musicdictnz, userinput, alphabetList):
             else:
                 if letter not in musicdictam.keys() or musicdictnz.keys():
                     pass
-    print('Your scale degrees:')
+    print('\nIndex/Scale Degrees:')
     print(returnedinput)
+    transposeInput = returnedinput
+    if globalTranspose != 0:
+        for degree in range(len(transposeInput)):
+            transposeInput[degree] = transposeInput[degree] + abs(globalTranspose)
+            if transposeInput[degree] > 12:
+                transposeInput[degree] -= 12
+        print('\n$$$ Transposition Degrees $$$')
+        print(transposeInput)
+        returnedinput = transposeInput
+    else:
+        pass
     if alphabetList == GREEK:
         print(translationinput)
         print(''.join(map(str, translationinput)))
-        print('Your Input: ' + userinputed)
+        print('\nYour Input: ' + userinputed)
     if alphabetList == FUTHARK:
         print(translationinput)
         print(''.join(map(str, translationinput)))
-        print('Your Input: ' + userinputed)
+        print('\nYour Input: ' + userinputed)
     if alphabetList == OLDLATIN:
-        print('Your Input: ' + userinput)
+        print('\nYour Input: ' + userinput)
         print(' - '.join(userinputed) + '\n')
     else:
         pass
@@ -393,6 +401,7 @@ def mainmenu():
     tonicScale = []
     userAlphabet = []
     userchangedScale = []
+    globalTranspose = 0
     if tonicScale == [] and userAlphabet == []:
         tonicScale = bTonicScale
         userAlphabet = OLDLATIN
@@ -411,10 +420,16 @@ def mainmenu():
             5) Exit''')
         menuinput = input("Enter a number to select an option: ")
         if menuinput == '1':
+            if globalTranspose == 0 and tonicScale[0] != 'B':
+                print('''
+                Be careful, you must have really messed around with your settings. 
+                This is not a bug, but user-abuse. Use Option 4 if things get too wild. Good try, though.
+                What you did, is change scales and turned off the transposition feature.
+                Thus, the program will output tonicized scale degrees from their index number rather than transpositional relation (B) ''')
             # OPTION 1 - THE MELODICON
             repeatcheck = 0
             while repeatcheck == 0:
-                themelodicon(tonicScale,userAlphabet)
+                themelodicon(tonicScale,userAlphabet, globalTranspose)
                 reconvertcheck = 0
                 while reconvertcheck == 0:
                     convertagain = input("Convert more words? (Y/N): ")
@@ -509,7 +524,7 @@ def mainmenu():
             # Change the default tonic note from 'B' to another 12-tone pitch index.
             while changeCheck == 0:
                 changescale = input(
-                    "Which note would you like to change your tonic to?: \n New Tonic (Move in semitones): " + "\n")
+                    "\nWhich note would you like to change your tonic to?: \n New Tonic (Move in semitones): " + "\n")
                 while inputCheck == 0:
                     if changescale == str(''):
                         changeCheck += 1
@@ -521,29 +536,36 @@ def mainmenu():
                         except ValueError:
                             print("Invalid input, not an integer! Try again.")
                             changescale = input(
-                                "Which note would you like to change your tonic to?: \n New Tonic (Move in semitones): " + "\n")
+                                "\nWhich note would you like to change your tonic to?: \n New Tonic (Move in semitones): " + "\n")
                             inputCheck = 0
                             continue
                         changescale = -int(changescale)
                         if changescale <= 12 and changescale >= -12:
-                            s.rotate(changescale)
-                            userchangedScale = list(s)
-                            print("Your New Scale: " + str(list(userchangedScale)))
-                            tonicScale = userchangedScale
-                            changeCheck =+ 1
-                            break
+                            if changescale == 0:
+                                print("\nYour Scale did not change.")
+                                changeCheck =+ 1
+                                break
+                            else:
+                                s.rotate(changescale)
+                                userchangedScale = list(s)
+                                print("\nYour New Scale: " + str(list(userchangedScale)))
+                                tonicScale = userchangedScale
+                                globalTranspose = changescale
+                                changeCheck =+ 1
+                                break
                         else:
                             print(
                                 "Invalid Input, please enter an integer within -12 to 12" + "\n")
                             inputCheck = 0
                             changescale = input(
-                                "Which note would you like to change your tonic to?: \n New Tonic (Move in semitones): "  + "\n")
+                                "\nWhich note would you like to change your tonic to?: \n New Tonic (Move in semitones): "  + "\n")
                             continue 
                                     
         elif menuinput == '4':
             # OPTION  4 Restore the OldLatin and B-Scale defaults.
             tonicScale = bTonicScale
             userAlphabet = OLDLATIN
+            globalTranspose = 0
             print("Default settings restored.\n")
 
         elif menuinput == '5':
@@ -554,8 +576,8 @@ def mainmenu():
             print('Invalid Input. Try Again.')
             continue
 #---------THE MELODICON-----------------
-def themelodicon(tonicScale, alphabetList):
-    print("Welcome to the Melodicon!")
+def themelodicon(tonicScale, alphabetList, globalTranspose):
+    print("\nWelcome to the Melodicon!\n")
     print("(Your Scale Tonic is " + tonicScale[0])
     if alphabetList == OLDLATIN:
         print('''Invalid characters will removed.)
@@ -578,7 +600,7 @@ def themelodicon(tonicScale, alphabetList):
     userMusicDictNZ = makemusicalphabetbyhalf(alphabetList[12:24], twelvetoneScale)
     userScale = makemusicscale(tonicScale, twelvetoneScale)
     wordInput = input("Please enter a word, name, or phrase to convert: ")
-    userReturn = compareuserinput(userMusicDictAM, userMusicDictNZ, wordInput, alphabetList)
+    userReturn = compareuserinput(userMusicDictAM, userMusicDictNZ, wordInput, alphabetList, globalTranspose)
     populatescaledegrees(userScale, userReturn)
     populatesolfege(solfegeDict, userReturn)
     createmidifile(userReturn, filepath)
