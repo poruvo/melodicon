@@ -401,6 +401,7 @@ def mainmenu():
     menucheck = 0
     tonicScale = []
     userAlphabet = []
+    userchangedTransposition = [0,1,2,3,4,5,6,7,8,9,10,11]
     userchangedScale = []
     globalTranspose = 0
     if tonicScale == [] and userAlphabet == []:
@@ -516,11 +517,11 @@ def mainmenu():
             if tonicScale == []:
                 tonicScale = bTonicScale
                 s = deque(tonicScale)
-                t = deque(twelvetoneScale)
+                t = deque(userchangedTransposition)
                 print("Your Current Scale: " + str(list(s)))
             else:
                 s = deque(tonicScale)
-                t = deque(twelvetoneScale)
+                t = deque(userchangedTransposition)
                 print("Your Current Scale: " + str(list(s)))
             # Change the default tonic note from 'B' to another 12-tone pitch index.
             while changeCheck == 0:
@@ -550,9 +551,11 @@ def mainmenu():
                                 s.rotate(changescale)
                                 t.rotate(changescale)
                                 userchangedScale = list(s)
+                                userchangedTransposition = list(t)
                                 print("\nYour New Scale: " + str(list(userchangedScale)))
                                 tonicScale = userchangedScale
-                                globalTranspose = int(t[0]-1)
+                                globalTranspose = userchangedTransposition[0]
+                                # globalTranspose = userchangedTransposition[0].value
                                 changeCheck =+ 1
                                 break
                         else:
