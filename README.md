@@ -46,11 +46,13 @@ Traditionally, you may be inclined to try out words that you know or words that 
 For example: 
 
 KING in English, B[10,9,1,7] (( G#/Ab - G - B ))
+
     (is) 
-REGIS in Old Latin. B[5,5,7,9,6] (( D#/Eb - F - G - E ))
+    
+REGIS in Old Latin. B[5,5,7,9,6] ((D#/Eb - D#/Eb - F - G - E ))
+
 
 As you can see, these provide very different musical phrases.
-
 Feel free to be as creative as you like! 
 There are no wrong words! (notes)
 
