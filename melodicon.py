@@ -583,7 +583,6 @@ def mainmenu():
 #---------THE MELODICON-----------------
 def themelodicon(tonicScale, alphabetList, globalTranspose):
     print("\nWelcome to the Melodicon!\n")
-    print("(Your Scale Tonic is " + tonicScale[0])
     if alphabetList == OLDLATIN:
         print('''Invalid characters will removed.)
                 U = V
@@ -604,6 +603,7 @@ def themelodicon(tonicScale, alphabetList, globalTranspose):
     userMusicDictAM = makemusicalphabetbyhalf(alphabetList[0:12], twelvetoneScale)
     userMusicDictNZ = makemusicalphabetbyhalf(alphabetList[12:24], twelvetoneScale)
     userScale = makemusicscale(tonicScale, twelvetoneScale)
+    print("### (Your Scale Tonic is " + tonicScale[0] + ') ###')
     wordInput = input("Please enter a word, name, or phrase to convert: ")
     userReturn = compareuserinput(userMusicDictAM, userMusicDictNZ, wordInput, alphabetList, globalTranspose)
     populatescaledegrees(userScale, userReturn)
