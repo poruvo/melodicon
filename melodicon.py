@@ -36,7 +36,7 @@ def compareuserinput(musicdictam, musicdictnz, userinput, alphabetList):
     returnedinput = []
     userinputed = userinput.replace(" ", "")
     userinputed = userinputed.replace(",", "")
-    userinputed = re.sub("[^A-Za-z]", "", userinputed)
+    userinputed = re.sub("[^A-Za-z&]", "", userinputed)
     if alphabetList == OLDLATIN:
         translationinput = []
         userinputed = userinputed.upper()
