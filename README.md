@@ -32,7 +32,7 @@ Use this program as a tool to create interesting musical phrases or motifs to us
 Additionally, the user can export their converted word/phrase to a MIDI File.
 
 ## Usage
-The program has a numeric menu with 6 options.
+The program has a numeric menu with 5 options.
 
 The default __scale__ is a twelvetone scale starting from pitch _B4_  
 
