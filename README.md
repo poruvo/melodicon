@@ -71,6 +71,8 @@ Change the alphabet index of the melodicon.
 Change the scale tonic of the melodicon
 (The default scale tonic is B.)
 
+The scale tonic will be changed in semitones, **use integers ranging from -12 to 12**
+
 #### 4) Restore Defaults
 Return alphabet index and music scale to _'Old Latin'_ and _'B4'_ respectively.  
 
