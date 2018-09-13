@@ -4,6 +4,25 @@ An program that converts letters, words, and phrases to musical pitches using an
 ## Purpose 
 This program was written to attempt to bridge the gap between 'music' and 'words'. The Melodicon uses a twelve-tone musical scale to convert characters from a phrase, name, or string into note pitches or solfege.
 
+Here is an example of the index.
+
+### OLD LATIN
+-
+A B C D E F G H I  K  L  M
+1 2 3 4 5 6 7 8 9 10 11 12
+N O P Q R S T V X  Y  Z  &
+***
+### GREEK
+Α Β Γ Δ Ε Ζ Η Θ Ι  Κ  Λ  Μ
+1 2 3 4 5 6 7 8 9 10 11 12
+Ν Ξ Ο Π Ρ Σ Τ Υ Φ  Χ  Ψ  Ω
+***
+### ELDER FUTHARK
+ᚠ ᚢ ᚦ ᚨ ᚱ ᚲ ᚷ ᚹ ᚺ  ᚾ   ᛁ  ᛃ
+1 2 3 4 5 6 7 8 9 10 11 12
+ᛇ ᛈ ᛉ ᛋ ᛏ ᛒ ᛖ ᛗ ᛚ  ᛜ  ᛞ  ᛟ
+
+
 Use this program as a tool to create interesting musical phrases or motifs to use in your own personal projects!
 
 Additionally, the user can export their converted word/phrase to a MIDI File.
@@ -13,8 +32,20 @@ The program has a numeric menu with 6 options.
 
 The default __scale__ is a twelvetone scale starting from pitch _B4_  
 
-The default __alphabet__ reference is a modified version of the _Old Latin_ alphabet.   
+The default __alphabet__ reference is a modified version of the _Old Latin_ alphabet.
 
+Traditionally, you may be inclined to try out words that you know or words that you feel. However, I encourage you to translate some of those words into other latin-based languages or into complete ancient greek or elder futhark translations.
+
+For example: 
+
+KING in English, B[10,9,1,7] (( G#/Ab - G - B ))
+    (is) 
+REGIS in Old Latin. B[5,5,7,9,6] (( D#/Eb - F - G - E ))
+
+As you can see, these provide very different musical phrases.
+
+Feel free to be as creative as you like! 
+There are no wrong words! (notes)
 
 ### Menu
 ***
@@ -51,6 +82,14 @@ This program needs the following packages to run:
 6) Code It
 7) Push It Back Up
 8) Celebrate!
+
+## Editing Your Melodicon
+Since I made this program with simple sets of local data, it is possible to edit your index to suit the characters that you need.
+At the top of the code, simply replace the characters you wish to have appear by replacing them in the CONST arrays I have initialized.
+
+If you have any issues trying to EDIT the index for YOUR melodicon, please let me know.
+
+(If you mess it up, just redownload the melodicon.py :D )
 
 ## History
 Version 0.7.5 - Open Source Code - Needs Refactoring, Fully Functional
