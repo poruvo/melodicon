@@ -38,7 +38,7 @@ The default __scale__ is a twelvetone scale starting from pitch _B4_
 
 The default __alphabet__ reference is a modified version of the _Old Latin_ alphabet.
 
-Traditionally, you may be inclined to try out words that you know or words that you feel. However, I encourage you to translate some of those words into other latin-based languages or into complete ancient greek or elder futhark translations.
+Traditionally, you may be inclined to try out words that you know or words that you feel. However, I encourage you to translate some of those words into other latin-based languages or into complete ancient greek or elder futhark translations. (Or, try pure greek and futhark words.)
 
 For example: 
 
