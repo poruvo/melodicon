@@ -6,7 +6,7 @@ This program was written to attempt to bridge the gap between 'music' and 'words
 
 Here is an example of the index.
 
-Your scale degrees are 1-12, the corresponding characters are located at the top and the bottom of each number.
+Your scale degrees are 1-12 and the corresponding characters for each alphabet are located at the top and the bottom of each scale degree.
 
 This system is what makes the melodicon a twelve-tone alphanumeric composing index.
 
