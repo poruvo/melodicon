@@ -4,7 +4,7 @@ from pathlib import Path
 OLDLATIN = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'K', 'L', 'M', 'N', 'O',
             'P', 'Q', 'R', 'S', 'T', 'V', 'X', 'Y', 'Z', '&']
 GREEK = ['\u0391','\u0392','\u0393', '\u0394', '\u0395', '\u0396', '\u0397', '\u0398', '\u0399', '\u039a', '\u039b', '\u039c', '\u039d', '\u039e', '\u039f', '\u03a0', '\u03a1', '\u03a3','\u03a4', '\u03a5', '\u03a6', '\u03a7', '\u03a8', '\u03a9']                        
-GREEKCONV = ['a', 'b', 'g', 'd', 'e', 'z', 'ee', 'th', 'i', 'k', 'l', 'm', 'n', 'ks', 'o', 'p', 'r', 's', 't', 'u', 'f', 'ch', 'psi', 'oh']
+GREEKCONV = ['a', 'v', 'y', 'd', 'e', 'z', 'ee', 'th', 'i', 'k', 'l', 'm', 'n', 'ks', 'o', 'p', 'r', 's', 't', 'u', 'f', 'ch', 'psi', 'oh']
 FUTHARK = ['\u16A0', '\u16A2', '\u16A6', '\u16A8', '\u16B1', '\u16B2', '\u16B7',
            '\u16B9', '\u16BA', '\u16BE', '\u16C1', '\u16C3', '\u16C7', '\u16C8', '\u16C9', '\u16CB', '\u16CF', '\u16D2', '\u16D6', '\u16D7', '\u16DA', '\u16DC', '\u16DE', '\u16DF']
 FUTHARKCONV = ['f', 'u', 'th', 'a', 'r', 'k', 'g', 'w', 'h', 'n', 'i', 'j', 'ae', 'p', 'z', 's', 't', 'b', 'e', 'm', 'l', 'ng', 'd', 'o']
@@ -84,6 +84,11 @@ def compareuserinput(musicdictam, musicdictnz, userinput, alphabetList, globalTr
                     if uniconvinput in musicdictam.keys():
                         returnedinput.append(musicdictam.get(uniconvinput))
                         translationinput.append(arrayConvDictAM.get('k'))
+                elif letter == 'g':
+                    uniconvinput = arrayConvDictAM.get('y')
+                    if uniconvinput in musicdictam.keys():
+                        returnedinput.append(musicdictam.get(uniconvinput))
+                        translationinput.append(arrayConvDictAM.get('y'))
                 else:
                     if letter not in arrayConvDictAM.keys() or arrayConvDictNO.keys():
                         pass
@@ -583,23 +588,43 @@ def mainmenu():
 #---------THE MELODICON-----------------
 def themelodicon(tonicScale, alphabetList, globalTranspose):
     print("\nWelcome to the Melodicon!\n")
+    print("Visit: https://github.com/poruvo/melodicon/edit/master/README.md for instructions.")
     if alphabetList == OLDLATIN:
-        print('''Invalid characters will removed.)
+        print('''\n(Invalid characters will removed.)
                 U = V
                 W = UU
                 J = G
+                ---
+                A B C D E F G H I  K  L  M
+                1 2 3 4 5 6 7 8 9 10 11 12
+                N O P Q R S T V X  Y  Z  &
+                ---
                 ''')
-        print("Your alphabet is Old Latin!: " + str(OLDLATIN))
+        print("Your alphabet is Old Latin!")
     else: 
         if alphabetList == GREEK:
-            print('''Invalid characters will removed.)
+            print('''\n(Invalid characters will removed.)
             H = EE
             C = K
+            G = Y
+            OH = Omega
+            ---
+            Α Β Γ Δ Ε Ζ Η Θ Ι  Κ  Λ  Μ
+            1 2 3 4 5 6 7 8 9 10 11 12
+            Ν Ξ Ο Π Ρ Σ Τ Υ Φ  Χ  Ψ  Ω
+            ---
             ''')
-            print(("Your alphabet is Greek: ") + str(alphabetList))
+            print(("Your alphabet is Greek!") + str(alphabetList))
         elif alphabetList == FUTHARK:
-            print('Invalid characters will be removed')
-            print(("Your alphabet is Futhark:") + str(alphabetList))
+            print('\n(Invalid characters will be removed)')
+            print('''
+            ----
+            ᚠ ᚢ ᚦ ᚨ ᚱ ᚲ ᚷ ᚹ ᚺ  ᚾ   ᛁ  ᛃ
+            1 2 3 4 5 6 7 8 9 10 11 12
+            ᛇ ᛈ ᛉ ᛋ ᛏ ᛒ ᛖ ᛗ ᛚ  ᛜ  ᛞ  ᛟ
+            ---
+            ''')
+            print(("Your alphabet is Futhark!"))
     userMusicDictAM = makemusicalphabetbyhalf(alphabetList[0:12], twelvetoneScale)
     userMusicDictNZ = makemusicalphabetbyhalf(alphabetList[12:24], twelvetoneScale)
     userScale = makemusicscale(tonicScale, twelvetoneScale)
