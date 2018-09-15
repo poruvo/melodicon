@@ -30,6 +30,8 @@ ELDER FUTHARK
 
 Use this program as a tool to create interesting musical phrases or motifs to use in your own personal projects!
 
+Also, feel free to use this index by hand for your music composition as well.
+
 Additionally, the user can export their converted word/phrase to a MIDI File.
 
 This program requires Python 3.6.
@@ -112,9 +114,10 @@ If you have any issues trying to EDIT the index for YOUR melodicon, please let m
 (If you mess it up, just redownload the melodicon.py :D )
 
 ## History
-Version 0.8.0 - Open Source Code - Needs Refactoring, Functional Implementaion
+Version 0.9.0 - Open Source Code - Needs Refactoring, Functional Implementaion
 
 ### Changelog
+0.9.0 - Edited greek alphabet for accuracy. Edited flavor text for Melodicon option #1.
 
 0.8.0 - Fixed MIDI Directory bug. Added a 'transposition feature' for changed scales.
 
