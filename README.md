@@ -10,6 +10,7 @@ Your scale degrees are 1-12 and the corresponding characters for each alphabet a
 
 This system is what makes the melodicon a twelve-tone alphanumeric composing index.
 
+### Index
 <pre>
 OLD LATIN
 A B C D E F G H I  K  L  M
