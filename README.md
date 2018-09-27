@@ -10,6 +10,8 @@ Your scale degrees are 1-12 and the corresponding characters for each alphabet a
 
 This system is what makes the melodicon a twelve-tone alphanumeric composing index.
 
+(To display the 'Greek' and 'Futhark' languages in a terminal, you will need a terminal that is functional with unicode.)
+
 ### Index
 <pre>
 OLD LATIN
