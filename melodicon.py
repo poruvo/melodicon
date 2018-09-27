@@ -588,7 +588,7 @@ def mainmenu():
 #---------THE MELODICON-----------------
 def themelodicon(tonicScale, alphabetList, globalTranspose):
     print("\nWelcome to the Melodicon!\n")
-    print("Visit: https://github.com/poruvo/melodicon/edit/master/README.md for instructions.")
+    print("Visit: https://github.com/poruvo/melodicon/blob/master/README.md for instructions.")
     if alphabetList == OLDLATIN:
         print('''\n(Invalid characters will removed.)
                 U = V
