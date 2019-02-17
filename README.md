@@ -116,7 +116,7 @@ If you have any issues trying to EDIT the index for YOUR melodicon, please let m
 (If you mess it up, just redownload the melodicon.py :D )
 
 ## History
-Version 0.9.0 - Open Source Code - Needs Refactoring, Functional Implementaion
+Version 0.9.2 - Open Source Code - Needs Refactoring, Functional Implementaion
 
 ### Changelog
 0.9.2 - Edited futhark alphabet for accuracy. added semitone integer reference for changing scale tonic.
