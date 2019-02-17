@@ -119,6 +119,7 @@ If you have any issues trying to EDIT the index for YOUR melodicon, please let m
 Version 0.9.0 - Open Source Code - Needs Refactoring, Functional Implementaion
 
 ### Changelog
+0.9.2 - Edited futhark alphabet for accuracy. added semitone integer reference for changing scale tonic.
 0.9.0 - Edited greek alphabet for accuracy. Edited flavor text for Melodicon option #1.
 
 0.8.0 - Fixed MIDI Directory bug. Added a 'transposition feature' for changed scales.
