@@ -531,7 +531,7 @@ def mainmenu():
             # Change the default tonic note from 'B' to another 12-tone pitch index.
             while changeCheck == 0:
                 changescale = input(
-                    "\nWhich note would you like to change your tonic to?: \n New Tonic (Move in semitones): " + "\n")
+                    "\nWhich note would you like to change your tonic to?: \n New Tonic (Move in semitones [-12 to 12]): " + "\n")
                 while inputCheck == 0:
                     if changescale == str(''):
                         changeCheck += 1
