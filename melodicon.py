@@ -222,6 +222,21 @@ def compareuserinput(musicdictam, musicdictnz, userinput, alphabetList, globalTr
                 if uniconvinput in musicdictnz.keys():
                         returnedinput.append(musicdictnz.get(uniconvinput))
                         translationinput.append(arrayConvDictAEO.get(letter))
+            elif letter == 'V':
+                uniconvinput = arrayConvDictFJ.get('W')
+                if uniconvinput in musicdictam.keys():
+                        returnedinput.append(musicdictam.get(uniconvinput))
+                        translationinput.append(arrayConvDictFJ.get('W'))
+            elif letter == 'C':
+                uniconvinput = arrayConvDictAEO.get('S')
+                if uniconvinput in musicdictnz.keys():
+                        returnedinput.append(musicdictnz.get(uniconvinput))
+                        translationinput.append(arrayConvDictAEO.get('S'))
+            elif letter == 'Z':
+                uniconvinput = arrayConvDictAEO.get('S')
+                if uniconvinput in musicdictnz.keys():
+                        returnedinput.append(musicdictnz.get(uniconvinput))
+                        translationinput.append(arrayConvDictAEO.get('S'))
             else:
                 if letter not in arrayConvDictFJ.keys() or arrayConvDictAEO.keys():
                     pass
